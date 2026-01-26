@@ -1,0 +1,82 @@
+.old-price-saw {
+	/* убираем обычный line-through, сделаем свой */
+	text-decoration: none;
+	display: inline-block;
+	position: relative;
+	text-align: right;
+}
+
+/* рисуем линию зачёркивания сами */
+.old-price-saw::after {
+	content: '';
+	position: absolute;
+	display: block;
+	left: 50%;
+	top: 55%;
+	width: 50%;
+	height: 2px;
+	background: currentColor;
+	opacity: 0.7;
+	transform: rotate(-8deg);
+}
+
+/* Две “половинки” текста через clip-path */
+.old-price-saw._timeUp {
+	animation: sawShake 180ms ease-in-out 1;
+}
+
+/* “верхняя” половина */
+.old-price-saw._timeUp::before {
+	content: attr(data-text);
+	position: absolute;
+	inset: 0;
+	color: inherit;
+	clip-path: polygon(0 0, 100% 0, 100% 52%, 0 52%);
+	transform: translateX(0) rotate(0deg);
+	animation: sawTop 650ms ease-out forwards;
+	pointer-events: none;
+}
+
+/* нижняя половина — это основной текст, но мы её будем двигать */
+.old-price-saw._timeUp {
+	clip-path: polygon(0 52%, 100% 52%, 100% 100%, 0 100%);
+	transform: translateX(0) rotate(0deg);
+	animation: sawBottom 650ms ease-out forwards;
+}
+
+@keyframes sawTop {
+	0% {
+		transform: translateX(0) rotate(0deg);
+		opacity: 1;
+	}
+	100% {
+		transform: translateX(-18px) rotate(-8deg);
+		opacity: 0;
+	}
+}
+
+@keyframes sawBottom {
+	0% {
+		transform: translateX(0) rotate(0deg);
+		opacity: 1;
+	}
+	100% {
+		transform: translateX(18px) rotate(8deg);
+		opacity: 0;
+	}
+}
+
+@keyframes sawShake {
+	0% {
+		transform: translateX(0);
+	}
+	40% {
+		transform: translateX(-2px);
+	}
+	70% {
+		transform: translateX(2px);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
