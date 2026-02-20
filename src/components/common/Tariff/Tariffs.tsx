@@ -18,9 +18,9 @@ export function Tariffs() {
 		if (data && data.length > 0) dispatch(setIsDataLoaded(true))
 	}, [data])
 
-	if (isLoading) return <TariffSkeleton />
-
-	return (
+	return isLoading ? (
+		<TariffSkeleton />
+	) : (
 		<>
 			<div className="container mx-auto h-full p-4">
 				<main className=" p-4">
