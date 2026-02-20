@@ -3,7 +3,7 @@
 import { useMemo, useState } from 'react'
 import { usePurchaseTariffMutation } from '@/api/tariffsApi'
 import { TariffInfo } from './TariffInfo'
-import { Btn } from '../../ui/Button'
+import { Btn } from '@/components/ui'
 import { TariffAgreed } from './TariffAgreed'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { setSelectedTariffId, showAgreedError } from '@/slices/tariffsSlice'

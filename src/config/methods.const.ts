@@ -1,8 +1,6 @@
-import {
-	MastercardIcon,
-	SbpIcon,
-	VisaIcon,
-} from '@/components/common/Payment/paymentIcons'
+import SbpIcon from '@/assets/icon/sbp.svg'
+import VisaIcon from '@/assets/icon/visa.svg'
+import MastercardIcon from '@/assets/icon/mastercard.svg'
 
 export const METHODS = [
 	{
