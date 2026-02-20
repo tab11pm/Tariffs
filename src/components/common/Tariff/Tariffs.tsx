@@ -24,7 +24,7 @@ export function Tariffs() {
 		<>
 			<div className="container mx-auto h-full p-4">
 				<main className=" p-4">
-					<h1 className="text-center mb-2 md:mb-32 text-2xl font-bold">
+					<h1 className="text-center mb-2 md:mb-12 text-2xl font-bold">
 						Выбери подходящий для себя{' '}
 						<span className="primary-color">тариф</span>
 					</h1>
