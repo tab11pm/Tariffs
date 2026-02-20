@@ -25,9 +25,11 @@ export const TariffCard = ({ card, onClick, isActive }: TariffCardProps) => {
 				onClick={() => onClick(card.id)}
 			>
 				<div className="flex items-start justify-end md:justify-between gap-2 mb-2 h-10">
-					<div className="relative -top-5 md:absolute md:-top-1 rounded-lg  bg-(--red) h-10 w-16 flex items-center justify-center text-xl">
-						-{card.discountPercent}%
-					</div>
+					{isTime && (
+						<div className="relative -top-5 md:absolute md:-top-1 rounded-lg  bg-(--red) h-10 w-16 flex items-center justify-center text-xl">
+							-{card.discountPercent}%
+						</div>
+					)}
 					<div></div>
 					<div className="relative -top-3 md:-top-4 rounded-lg md:text-3xl text-(--primary) ">
 						{card.is_best && 'хит!'}
